@@ -1,0 +1,33 @@
+﻿@model Initiere.Models.Antrenori
+
+@{ 
+    ViewBag.Title = "Details"; 
+    
+}
+<h2> Details </h2 >
+
+<div class = "panel panel-default"> 
+    <div class="panel-body">
+        @Html.Label("Nume", "Nume:")
+        <br />
+        @Html.DisplayFor(b => b.Nume)
+        <br />
+       
+    </div>
+@if (Model.Clnt.Count > 0)
+    {@Html.Label("Client", "Client:")<br />
+    <ul>@foreach (var clnt in Model.Clnt)
+    {   
+        <li>@clnt.Nume</li>
+    }
+     </ul>
+}
+</div>
+</div>
+@using (Html.BeginForm(actionName: "UpdateAntrenori", controllerName: "Antrenori", method: FormMethod.Get, routeValues: new { id = Model.IdAntrenori }))
+
+    {
+        <button style ="margin-right:5px" class="btn btn-primary col-lg-1" type="submit">Update</button>
+    }
+@using (Html.BeginForm(actionName: "DeleteAntrenori", controllerName: "Antrenori", method: FormMethod.Post, routeValues: new { id = Model.IdAntrenori }))
+{@Html.HttpMethodOverride(HttpVerbs.Delete)<button class ="btn btn-primary col-lg-1" type="submit">Delete</button>}<br />

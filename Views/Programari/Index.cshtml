@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "Programari";
+}
+
+<h2>Programari</h2>
+
+@if (ViewBag.Programari != null)
+{
+    foreach (var prog in ViewBag.Programari)
+    {<div class="panel panel-default">
+         <div class="panel-body">
+             @Html.Label("Id", "Id:")
+             <br />
+             <p>@prog.IdProgramari</p>
+             @Html.Label("zi", "Ziua:")
+             <p>@prog.Zi</p>
+             @Html.Label("luna", "Luna:")
+             <p>@prog.Luna</p>
+             @Html.Label("an", "An:")
+             <p>@prog.An</p>
+
+             @using (Html.BeginForm(actionName: "Details", controllerName: "Programari", method: FormMethod.Get, routeValues: new { id = prog.IdProgramari}))
+             {
+                 <button style="margin-right:5px" class=" btn btn-primary col-lg-1" type="submit">Details</button>
+             }
+
+         </div>
+        </div>
+     
+    }
+
+    @Html.ActionLink("Adauga Programare", "Create")
+
+}

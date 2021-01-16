@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@if (ViewBag.Clienti != null)
+{
+    foreach (var clnt in ViewBag.Clienti)
+    {<div class="panel panel-default">
+         <div class="panel-body">
+             @Html.Label("Id", "Id:")
+             <br />
+             <p>@clnt.IdClient</p>
+             @Html.Label("Nume", "Numele Clientului:")
+             <br />
+             <p>@clnt.Nume</p>
+
+             @using (Html.BeginForm(actionName: "Details", controllerName: "Client", method: FormMethod.Get, routeValues: new { id = clnt.IdClient }))
+             {
+                 <button style="margin-right:5px" class=" btn btn-primary col-lg-1" type="submit">Details</button>
+             }
+         </div>
+        </div>
+    }
+
+    @Html.ActionLink("Adauga Client", "Create")
+
+}

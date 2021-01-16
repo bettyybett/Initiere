@@ -1,0 +1,36 @@
+﻿@model Initiere.Models.Client
+
+@{
+    ViewBag.Title = "Details";
+
+}
+<h2> Details </h2>
+
+<div class="panel panel-default">
+    <div class="panel-body">
+        @Html.Label("Nume", "Nume:")
+        <br />
+        @Html.DisplayFor(b => b.Nume)
+        <br />
+        <br />
+        @if (Model.Cont != null)
+        {
+
+            @Html.Label("Cont", "Contul Dvs. are Username-ul:")<br />
+            @Html.DisplayFor(b => b.Cont.UserName)
+            <br /><br />
+            <br />}
+    </div>
+
+   
+
+</div>
+</div>
+@using (Html.BeginForm(actionName: "Update", controllerName: "Client", method: FormMethod.Get, routeValues: new { id = Model.IdClient }))
+
+{
+    <button style="margin-right:5px" class="btn btn-primary col-lg-1" type="submit">Update</button>
+}
+@using (Html.BeginForm(actionName: "Delete", controllerName: "Client", method: FormMethod.Post, routeValues: new { id = Model.IdClient }))
+{@Html.HttpMethodOverride(HttpVerbs.Delete)<button class="btn btn-primary col-lg-1" type="submit">Delete</button>}
+<br />

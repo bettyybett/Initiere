@@ -1,0 +1,19 @@
+﻿@model Initiere.Models.Antrenori
+@{
+    ViewBag.Title = "UpdateAntrenori";
+}
+
+<h2>Update</h2>
+@using (Html.BeginForm(actionName: "UpdateAntrenori", controllerName: "Antrenori"))
+{
+    @Html.HttpMethodOverride(HttpVerbs.Put)
+    @Html.HiddenFor(b => b.IdAntrenori)
+    <br />
+
+    @Html.Label("Nume", "Numele Antrenorului:")
+    <br />
+    @Html.EditorFor(b => b.Nume, new { htmlAttributes = new { @class = "form-control" } })
+    @Html.ValidationMessageFor(b => b.Nume, "", new { @class = "text-danger" })
+    <br />
+    <button class ="btn btn-primary" type="submit">Update</button>
+    }

@@ -1,0 +1,39 @@
+﻿
+@model Initiere.Models.Client
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm(actionName: "Create", controllerName: "Client", method: FormMethod.Post))
+{@Html.Label("Id", "ID-ul Clietului:")
+<br />
+
+@Html.TextBoxFor(b => b.IdClient, null, new { placeholder = "Introduceti id-ul clientului", @class = "form-control" })
+@Html.ValidationMessageFor(b => b.IdClient, "", new { @class = "text-danger" })
+<br />
+
+
+
+@Html.Label("Nume", "Client :")
+<br />
+@Html.TextBoxFor(b => b.Nume, null, new
+{
+    placeholder = "Introduceti numele clientului",
+    @class = "form-control"
+})
+@Html.ValidationMessageFor(b => b.Nume, "", new { @class = "text-danger" })
+<br />
+<br />
+<!--@Html.Label("Zi", "Zi:")
+<br />
+@Html.TextBoxFor(b => b.Programari, null, new
+{
+    placeholder = "Introduceti ziua programari",
+    @class = "form-control"
+})
+@Html.ValidationMessageFor(b => b.Programari, "", new { @class = "text-danger" })-->
+<button class="btn btn-primary" type="submit">Create</button>
+}

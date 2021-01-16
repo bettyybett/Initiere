@@ -1,0 +1,40 @@
+﻿
+@model Initiere.Models.Programari
+
+@{
+    ViewBag.Title = "Details";
+
+}
+<h2> Details </h2>
+
+<div class="panel panel-default">
+    <div class="panel-body">
+
+    </div>
+    @Html.Label("zi", "Zi:")
+
+    @Html.DisplayFor(b => b.Zi)
+
+    @Html.Label("luna", "luna:")
+
+    @Html.DisplayFor(b => b.Luna)
+    @Html.Label("an", "An:")
+
+    @Html.DisplayFor(b => b.An)
+
+    @if (Model.Antrenori != null)
+    {@Html.Label("Antrenori", "Numele Antrenorului:")<br />
+    @Html.DisplayFor(b => b.Antrenori.Nume)<br /><br />}
+    @if (Model.Client != null)
+    {@Html.Label("Client", "Numele Clientului:")<br />
+    @Html.DisplayFor(b => b.Client.Nume)<br /><br />}
+</div>
+
+@using (Html.BeginForm(actionName: "Update", controllerName: "Programari", method: FormMethod.Get, routeValues: new { id = Model.IdProgramari }))
+
+{
+    <button style="margin-right:5px" class="btn btn-primary col-lg-1" type="submit">Update</button>
+}
+@using (Html.BeginForm(actionName: "Delete", controllerName: "Programari", method: FormMethod.Post, routeValues: new { id = Model.IdProgramari }))
+{@Html.HttpMethodOverride(HttpVerbs.Delete)<button class="btn btn-primary col-lg-1" type="submit">Delete</button>}
+<br />

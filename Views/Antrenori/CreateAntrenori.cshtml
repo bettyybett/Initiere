@@ -1,0 +1,32 @@
+﻿
+@model Initiere.Models.Antrenori
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm(actionName: "CreateAntrenori", controllerName: "Antrenori", method: FormMethod.Post))
+{@Html.Label("Id", "ID-ul Antrenorului:")
+<br />
+
+@Html.TextBoxFor(b => b.IdAntrenori, null, new { placeholder = "Introduceti id-ul antrenorului", @class = "form-control" })
+@Html.ValidationMessageFor(b => b.IdAntrenori, "", new { @class = "text-danger" })
+<br />
+
+
+
+@Html.Label("Nume", "Antrenor:")
+<br />
+@Html.TextBoxFor(b => b.Nume, null, new
+{
+    placeholder = "Introduceti numele antrenorului",
+    @class = "form-control"
+})
+@Html.ValidationMessageFor(b => b.Nume, "", new { @class = "text-danger" })
+<br />
+<br />
+<br />
+<button class="btn btn-primary" type="submit">Create</button>
+}

@@ -1,0 +1,67 @@
+﻿
+@model Initiere.Models.Programari
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm(actionName: "Create", controllerName: "Programari", method: FormMethod.Post))
+{@Html.Label("Id", "ID-ul Programarii:")
+<br />
+
+@Html.TextBoxFor(b => b.IdProgramari, null, new { placeholder = "Introduceti id-ul programului", @class = "form-control" })
+@Html.ValidationMessageFor(b => b.IdProgramari, "", new { @class = "text-danger" })
+<br />
+
+
+
+@Html.Label("Zi", "Zi:")
+<br />
+@Html.TextBoxFor(b => b.Zi, null, new
+{
+    placeholder = "Introduceti ziua programarii",
+    @class = "form-control"
+})
+@Html.ValidationMessageFor(b => b.Zi, "", new { @class = "text-danger" })
+<br />
+@Html.Label("Luna", "Luna:")
+<br />
+@Html.TextBoxFor(b => b.Luna, null, new
+{
+    placeholder = "Introduceti luna programarii",
+    @class = "form-control"
+})
+@Html.ValidationMessageFor(b => b.Luna, "", new { @class = "text-danger" })
+
+
+@Html.Label("An", "An:")
+<br />
+@Html.TextBoxFor(b => b.An, null, new
+{
+    placeholder = "Introduceti anul programarii",
+    @class = "form-control"
+})
+@Html.ValidationMessageFor(b => b.An, "", new { @class = "text-danger" })
+
+@Html.Label("IdAntr", "IdAntrenori:")
+<br />
+@Html.TextBoxFor(b => b.IdAntrenori, null, new
+{
+    placeholder = "Introduceti Id-ul antrenorului",
+    @class = "form-control"
+})
+@Html.ValidationMessageFor(b => b.IdAntrenori, "", new { @class = "text-danger" }) 
+@Html.Label("IdClnt", "IdClient:")
+@Html.TextBoxFor(b => b.IdClient, null, new
+{
+    placeholder = "Introduceti Id-ul clientului",
+    @class = "form-control"
+})
+@Html.ValidationMessageFor(b => b.IdClient, "", new { @class = "text-danger" })
+<br />
+<br />
+<br />
+<button class="btn btn-primary" type="submit">Create</button>
+}

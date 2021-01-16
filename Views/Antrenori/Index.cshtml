@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+@if(ViewBag.Antrenori != null)
+{
+foreach (var antre in ViewBag.Antrenori)
+{<div class ="panel panel-default">
+    <div class ="panel-body">
+        @Html.Label("Id", "Id:")
+        <br />
+        <p>@antre.IdAntrenori</p>
+       @Html.Label("Nume", "Numele Antrenorului:")
+        <br />
+        <p>@antre.Nume</p>
+        @using (Html.BeginForm(actionName: "Details", controllerName: "Antrenori", method: FormMethod.Get, routeValues: new { id = antre.IdAntrenori }))
+        {
+            <button style="margin-right:5px" class=" btn btn-primary col-lg-1" type="submit">Details</button>
+        }
+
+</div>
+</div>
+    }
+}
+
+@Html.ActionLink("Adauga Antrenor", "CreateAntrenori")

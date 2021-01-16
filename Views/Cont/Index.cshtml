@@ -1,0 +1,12 @@
+﻿
+@{
+    ViewBag.Title = "Cont";
+}
+
+<h2>Cont</h2>
+
+@if (ViewBag.Cont != null)
+{
+    foreach (var cont in ViewBag.Cont)
+    {<p>@cont.IdCont @cont.UserName @cont.Password</p>}
+}
